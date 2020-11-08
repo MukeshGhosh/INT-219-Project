@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<head>
+    <title>Saavn</title>
+    <link rel="shortcut icon" title="images/x-icon" href="images/favicon-chrome.png">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="https://kit.fontawesome.com/0f7bd02f2a.js" crossorigin="anonymous"></script>
+    <script src="myscript.js"></script>
+
+</head>
+<body>
+<!-- =======================================================   header    ===================================================================  -->
+    <header>
+        <div id="logo" class="header-div">
+            <img src="images/logo4.png" alt="logo">
+        </div>
+        <div id="fav" class="header-div">
+            <p>Favourites</p>
+        </div>
+        <div id="nav">
+            <div class="container">
+            
+            
+            <input placeholder='Search...' class='js-search' type="text">
+            <i class="fas fa-search" id="search-icon"></i>
+            <div id="bell">
+            
+            </div>
+            <i class="fas fa-bell" id="bell-icon"></i>
+            <div id="user" class="header-div">
+                <img id="user-image" src="images/Me-min.jpg" alt="user">
+            </div>
+
+            </div>
+        </div>
+    
+    </header>
+    
+<!-- =======================================================   footer    ===================================================================  -->
+    <div class="container-f">
+
+        <div class="text-container">
+            <div class="song-description">
+                <span class="text">In The End (Remix)</span>
+                <span class="text">Mellen Gi</span>
+                  
+            </div>
+            <div class="song-controls">
+                <div class="playback_controls">
+                  <button onclick="skip('back')"><i class="fa fa-fast-backward"></i></button>
+                  <button onclick="playpause()"><i class="fa fa-play"></i><i class="fa fa-pause"></i></button>
+                  <button onclick="stop()"><i class="fa fa-stop"></i></button>
+                  <button onclick="skip('fwd')"><i class="fa fa-fast-forward"></i></button>
+                  </div>
+                  <br>
+                  <div id="seekbar">
+                  <input type="range" oninput="setPos(this.value)" id="seek" value="0" max="">
+                  </div>
+                  <br>
+                  <div class="volume_controls">
+                  <button id="mute" onclick="mute()"><i class="fa fa-volume-up"></i></button>
+                  <input type="range" id="volume" oninput="setVolume(this.value)" min="0" max="1" step="0.01" value="1">
+                  </div>
+            </div>
+          
+        </div>
+    </div>
+<!-- =======================================================   main body   ===================================================================  -->
+    <main>
+<!--   ---------------------------------------------   left  content     ----------------------------------------------------------------- -->
+        <content>
+    <!--   ------------------------------------------     carausel   ----------------------------------------- -->
+            <div id="carausel">
+                <div class="carousel-wrapper">
+                      <span id="item-1"></span>
+                      <span id="item-2"></span>
+                      <span id="item-3"></span>
+                      <div class="carousel-item item-1">
+                        <a class="arrow arrow-prev" href="#item-3"></a>
+                        <a class="arrow arrow-next" href="#item-2"></a>
+                      </div>
+
+                      <div class="carousel-item item-2">
+                        <a class="arrow arrow-prev" href="#item-1"></a>
+                        <a class="arrow arrow-next" href="#item-3"></a>
+                      </div>
+
+                      <div class="carousel-item item-3">
+                        <a class="arrow arrow-prev" href="#item-2"></a>
+                        <a class="arrow arrow-next" href="#item-1"></a>
+                      </div>
+                </div>
+            </div>
+    <!--   ------------------------------------------     start of latest release list    ----------------------------------------- -->
+            <div id="latest-release">
+                <div class="heading">
+                    <h2>Latest Release</h2>
+                </div>
+                <div class="flex-container">
+                    <div id="lr" class="song">
+                        <div class="img-cover">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="song-d">
+                            <div class="song-name">
+                                <p>Song Name</p>
+                            </div>
+                            <div class="artist-name">
+                                <p>Artist Name</p>
+                            </div>
+                        </div>
+                        <div class="heart">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    
+                    <div id="lr" class="song">
+                        <div class="img-cover">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="song-d">
+                            <div class="song-name">
+                                <p>Song Name</p>
+                            </div>
+                            <div class="artist-name">
+                                <p>Artist Name</p>
+                            </div>
+                        </div>
+                        <div class="heart">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    
+                    <div id="lr" class="song">
+                        <div class="img-cover">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="song-d">
+                            <div class="song-name">
+                                <p>Song Name</p>
+                            </div>
+                            <div class="artist-name">
+                                <p>Artist Name</p>
+                            </div>
+                        </div>
+                        <div class="heart">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                    
+                    <div id="lr" class="song">
+                        <div class="img-cover">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="song-d">
+                            <div class="song-name">
+                                <p>Song Name</p>
+                            </div>
+                            <div class="artist-name">
+                                <p>Artist Name</p>
+                            </div>
+                        </div>
+                        <div class="heart">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+    <!--   ------------------------------------------     end of latest release list    ----------------------------------------- -->
+           
+            <div id="popular-artist">
+                <div class="heading">
+                    <h2>Popular Artist</h2>
+                </div>
+                
+        <!--   ------------------------------------------     start of popular artist list    ----------------------------------------- -->
+                <div id="pa-container" class="flex-container">
+                    
+ 
+                    <div class="pa">
+                        
+                        <div class="pa-img  feature">
+                            <a href="popular-artist/pa1.html"></a>
+                            <img src="images/as2.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Arijit Singh</p>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="pa">
+                        
+                        <div class="pa-img  feature">
+                            <a href="popular-artist/pa1.html"></a>
+                            <img src="images/as2.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Arijit Singh</p>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="pa">
+                        
+                        <div class="pa-img  feature">
+                            <a href="popular-artist/pa1.html"></a>
+                            <img src="images/as2.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Arijit Singh</p>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="pa">
+                        
+                        <div class="pa-img  feature">
+                            <a href="popular-artist/pa1.html"></a>
+                            <img src="images/as2.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Arijit Singh</p>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="pa">
+                        
+                        <div class="pa-img  feature">
+                            <a href="popular-artist/pa1.html"></a>
+                            <img src="images/as2.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Arijit Singh</p>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="pa">
+                        
+                        <div class="pa-img  feature">
+                            <a href="popular-artist/pa1.html"></a>
+                            <img src="images/as2.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Arijit Singh</p>
+                        
+                        </div>
+                    
+                    </div>
+                    
+                   
+                    
+                    
+                    
+                </div>
+        <!--   ------------------------------------------     end of popular list    ----------------------------------------- -->
+            </div>
+            
+            
+            
+            <div class="heading">
+                <h2>Mood</h2>
+            </div>
+            <div id="genere" class="flex-container">
+                
+                <div class="g-card">
+                    <div class="text">
+                        <p>Party</p>
+                    </div>
+                </div>
+                
+                <div class="g-card">
+                    <div class="text">
+                        <p>Road Trip</p>
+                    </div>
+                </div>
+                
+                <div class="g-card">
+                    <div class="text">
+                        <p>Electronic</p>
+                    </div>
+                </div>
+            
+            </div>
+            
+            
+           
+            <div id="genere" class="flex-container">
+                
+                <div class="g-card">
+                    <div class="text">
+                        <p>Party</p>
+                    </div>
+                </div>
+                
+                <div class="g-card">
+                    <div class="text">
+                        <p>Road Trip</p>
+                    </div>
+                </div>
+                
+                <div class="g-card">
+                    <div class="text">
+                        <p>Electronic</p>
+                    </div>
+                </div>
+            
+            </div>
+            
+            
+            
+    <!-- ===============================  latest language wise =================================== -->
+            
+    <!-- ------------------------------------English----------------------------------------- -->        
+            
+            <div id="latest-english" class="latest-language">
+                <div class="heading">
+                    <h2>Latest English</h2>
+                </div>
+                <div class="flex-container">
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+            
+            </div>
+            
+    <!-- ------------------------------------Hindi----------------------------------------- --> 
+            <div  id="latest-hindi" class="latest-language">
+                <div class="heading">
+                    <h2>Latest Hindi</h2>
+                </div>
+                <div class="flex-container">
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+            
+            </div>
+            
+        <!-- ------------------------------------Hindi----------------------------------------- --> 
+            <div id="latest-hindi" class="latest-language">
+                <div class="heading">
+                    <h2>Latest Tamil</h2>
+                </div>
+                <div class="flex-container">
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                    <div class="ll">
+                        <div id="ll-img" class="pa-img">
+                            <img src="images/music3.jpg">
+                        </div>
+                        <div class="pa-name">
+                            <p>Name</p>
+                        
+                        </div>
+                        <div id="ll-date" class="pa-name">
+                            <p>Aug 26, 2020</p>
+                        </div>
+                    
+                    </div>
+                    
+                </div>
+            
+            </div>
+            
+
+        </content>
+<!--   ---------------------------------------------     aside     ----------------------------------------------------------------- -->
+        <aside>
+            <div id="pl-header">
+                <div id="my-playlist">
+                    <span>My Playlist</span>
+                </div>
+                <div id="queue">
+                    <div class="dropdown">
+                      <button onclick="myFunction()" class="dropbtn">Queue <i class="fas fa-caret-down"></i></button>
+                      <div id="myDropdown" class="dropdown-content">
+                        <a href="#">Playlist</a>
+                        <a href="#">Favourite Songs</a>
+                        
+                      </div>
+                    </div>
+                </div>
+            
+            </div>
+    <!--   ------------------------------------------     start of aside list     ----------------------------------------- -->
+            
+            
+            <div id="playlist">
+                <ul class="pl">
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox1"></a>
+                            <div class="img-cover">
+                                <img src="images/lily.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>Lily</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>Alan Walker</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox1" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/lily.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox2"></a>
+                            <div class="img-cover">
+                                <img src="images/thousand.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>A Thousand</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>Christina Perri</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox2" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/song1.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox3"></a>
+                            <div class="img-cover">
+                                <img src="images/kun.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>Kun Faya</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>A.R. Rehman</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox3" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/song2.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox4"></a>
+                            <div class="img-cover">
+                                <img src="images/lily.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>Lily</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>Alan Walker</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox4" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/lily.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox5"></a>
+                            <div class="img-cover">
+                                <img src="images/thousand.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>A Thousand</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>Christina Perri</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox5" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/song1.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox6"></a>
+                            <div class="img-cover">
+                                <img src="images/kun.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>Kun Faya</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>A.R. Rehman</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox6" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/song2.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    <li> 
+                        <div class="song feature">
+                            <a href="#lightbox7"></a>
+                            <div class="img-cover">
+                                <img src="images/lily.jpg">
+                            </div>
+                            <div class="song-d">
+                                <div class="song-name">
+                                    <p>Lily</p>
+                                </div>
+                                <div class="artist-name">
+                                    <p>Alan Walker</p>
+                                </div>
+                            </div>
+                            <div class="heart">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                        <div id="lightbox7" class="lightbox">
+                            <div id="content-box">
+                                <a href="#playlist"> X </a>
+                                <audio controls>
+                                  <source src="audio/lily.mp3" type="audio/mpeg">
+                                  Your browser does not support the audio tag.
+                                </audio>
+
+                            </div>
+                        </div>
+                    </li>
+                    
+                </ul>
+        <!--   ------------------------------------------     end of aside list     ----------------------------------------- -->
+            
+            </div>
+        
+        </aside>
+        
+    
+    </main>
+    
+
+</body>
