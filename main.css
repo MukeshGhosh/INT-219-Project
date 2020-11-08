@@ -1,0 +1,652 @@
+body{
+    background-color: black;
+}
+
+
+/*-----------------------------------------Header------------------------------------------------------------*/
+
+header{
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+#logo{
+    display: inline-block;
+    height: 4rem;
+    vertical-align: top;
+    
+}
+
+.header-div img{
+    height: inherit;
+    object-fit: contain;
+}
+
+#fav p{
+    color: azure;
+    font-size: 1.5rem;
+    text-align: center;
+    vertical-align: middle;
+  
+    font-family:sans-serif
+    
+}
+
+/*-----------Search----------*/
+#nav{
+    display:inline-block;
+    right:0;
+}
+
+.container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;;
+  align-items: center;
+    
+}
+
+.container div{
+    margin:0 0.5rem;
+}
+
+input[type=text]{
+    max-width: 200px;
+  position: relative;
+  padding: 8px 40px 8px 20px;
+  width:100%;
+  color: #f5e5e5;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 100;
+  letter-spacing: 2px;
+  border: none;
+  border-radius: 50px;
+  background-color: rgba(82, 82, 82, 0.99);
+  transition: width 0.4s ease;
+  outline: none;
+}
+
+#search-icon{
+  position: relative;
+  left: -37px;
+  color: #050505;
+}
+
+#bell-icon{
+    position: relative;
+    color:white;
+}
+
+#user-image{
+    height: inherit;
+    border-radius: 50%;
+    margin: 0 20px;
+    height:50px;
+    width:50px;
+    object-fit: cover;
+}
+
+/*-----------------------------------------------------------Main------------------------------------------------------------*/
+
+main{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+content{
+    width:70%;
+    background-color:black;
+    flex-shrink: 10;
+    
+}
+
+aside{
+    width:26%;
+    height:auto;
+    background-color:black;
+    min-width: 280px;
+   flex-shrink: 1;
+
+}
+
+/*-----carausel-----*/
+
+
+.carousel-wrapper{
+  height:400px;
+  position:relative;
+  width:80%;
+  margin:15px auto;
+}
+.carousel-item{
+  position:absolute;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  padding:25px 50px;
+  opacity:0;
+  transition: all 0.5s ease-in-out;
+}
+.arrow{
+  border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 12px;
+}
+
+.arrow-prev{
+  left:-30px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%) rotate(135deg);
+}
+ 
+.arrow-next{
+    right:-30px;
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%) rotate(-45deg);
+  }
+
+.light{
+  color:white;
+}
+
+@media (max-width: 480px) {
+      .arrow, .light .arrow {
+        background-size: 10px;
+        background-position: 10px 50%;
+      }
+    }
+}
+
+/*Select every element*/
+[id^="item"] {
+    display: none;
+  }
+
+.item-1 {
+    z-index: 2;
+    opacity: 1;
+  background:url('images/music4.jpg');
+  background-size:cover;
+  }
+.item-2{
+  background:url('images/music6.jpg');
+   background-size:cover;
+}
+.item-3{
+  background:url('images/music3.jpg');
+   background-size:cover;
+}
+
+*:target ~ .item-1 {
+    opacity: 0;
+  }
+
+#item-1:target ~ .item-1 {
+    opacity: 1;
+  }
+
+#item-2:target ~ .item-2, #item-3:target ~ .item-3 {
+    z-index: 3;
+    opacity: 1;
+  }
+}
+/*-------- end of carausel------------*/
+
+
+
+
+
+/*================================================aside==================================================*/
+#pl-header{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+#my-playlist{
+    background-color: black;
+  color: white;
+  padding: 10px;
+  font-size: 2em;
+  border: none;
+  cursor: pointer;
+    font-family: sans-serif;
+    font-weight: 600;
+    letter-spacing: 1px;
+  
+    display: inline-block;
+   
+}
+
+#queue{
+    
+    display: inline-block;
+}
+
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: black;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: rgba(67, 59, 54, 0.58);
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #bfbbbb;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+    width:100%;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+/*==============================Playlist===========================*/
+
+
+#playlist{
+    color:white;
+    position: relative;
+    padding: 5px;
+    left:-5pxl
+}
+
+.pl{
+    list-style: none;
+     border-left:2px solid #3c3c3c;
+}
+.song{
+    background-color: rgb(26, 26, 26);
+    display:flex;
+    flex-wrap: nowrap;
+    justify-content:space-between;
+    margin-bottom: 15px;
+    position:relative;
+    left:-20px;
+    padding-right:10px;
+    cursor: pointer;
+    
+}
+
+.song:hover{
+    background-color: rgb(46, 45, 45);
+}
+
+.img-cover{
+    height:70px;
+    width:70px;
+    align-self: flex-start;
+}
+.img-cover img{
+    object-fit: cover;
+    height:100%;
+    width:100%;
+    
+}
+.song-d{
+    font-family: sans-serif;
+    height:70px;
+    position:relative;
+    top:-15px;
+   
+    flex-shrink: 1;
+}
+
+.heart{
+    position: relative;
+    top:20px;
+    z-index: 10;
+}
+
+.song-name{
+    font-size: 1.5em;
+}
+
+.artist-name{
+    position: relative;
+    top:-16px;
+}
+
+.heart:hover{
+    color:red;
+}
+
+.flex-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#latest-release{
+    color:white;
+    width:95%;
+    margin-top: 60px;
+}
+
+#latest-release h2{
+    text-align: center;
+    font-family: sans-serif;
+}
+#lr{
+    width: 40%;
+    margin-bottom: 10px;
+    min-width: 250px;
+    left:0px;
+    flex-grow: 1;
+    flex-shrink: 1;
+    background-color: rgba(26, 26, 26, 0.29);
+}
+
+#lr .img-cover{
+    height:100px;
+    width:100px;
+    align-self: flex-start;
+}
+
+#lr .song-d{
+    top:0;
+}
+
+#lr .heart:hover{
+    color:darkgrey;
+}
+
+
+.pa{
+    flex-grow: 1;
+    flex-shrink: 1;
+    
+}
+
+#popular-artist{
+    color:white;
+    color:white;
+    width:100%;
+    margin-top: 60px;
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.pa-img{
+    height:100px;
+    width:100px;
+    
+}
+.pa-img img{
+    height:100%;
+    width:100%;
+    border-radius: 50%;
+    
+}
+
+.pa-name{
+    text-align: center;
+    width:100px;
+    font-size: 1.2rem;
+}
+
+
+/*---------------genere----------------*/
+
+#genere{
+    color:white;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.g-card{
+    background-image: linear-gradient( rgba(54, 54, 224, 0.72), rgba(232, 46, 31, 0.53) ), url(images/music6.jpg);
+    background-size:contain;
+    background-attachment: fixed;
+    height:150px;
+    width: 30%;
+    position: relative;
+}
+
+.g-card:hover{
+   background-color: aliceblue;
+    cursor: pointer;
+   
+}
+.g-card .text:hover{
+    color:rgba white;
+    font-family:cursive;
+   
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.84);
+     transition: text-shadow 0.5s;
+}
+.g-card .text{
+    text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.84);
+    font-size: 1.2em;
+    text-align: center;
+    margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+    
+}
+
+.heading{
+    color:white;
+    text-align: center;
+}
+
+.latest-language{
+    color:white;
+    margin-top: 60px;
+    font-family: sans-serif;
+    width: 100%;
+}
+
+
+#ll-img img{
+    border-radius: 0;
+}
+
+.ll{
+    margin-right: 10px;
+}
+
+#ll-img{
+    height:140px;
+    width:140px;
+    
+}
+
+.ll .pa-name{
+    width:140px;
+    font-size: 1rem;
+    text-align:start;
+    position: relative;
+    top:-10px;
+    margin: 0;
+    padding: 0;
+}
+
+#ll-date p{
+    position: relative;
+    top:-15px;
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+    font-size: 1rem;
+}
+/*=================================================footer===================================================================*/
+.container-f{
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+   display: flex;
+
+    position: absolute;
+}
+
+.text-container {
+    background-image:linear-gradient( to right,rgba(250, 10, 197, 0.94),rgb(245, 108, 7) );
+    width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-grow: 1;
+    flex-shrink: 1;
+    text-align: center;
+    position: fixed;
+    bottom:0;
+    left: 0;
+    z-index: 100;
+    
+ 
+}
+.song-description{
+    width:30%;
+    padding-top: 10px;
+}
+.song-controls{
+    padding-top: 5px;
+    width:70%;
+   display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+}
+
+.text {
+  color: #ffffff;
+  display: block;
+}
+.song-controls button {
+  background: #000000;
+  color: #ffffff;
+  background: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(#000000),
+    to(#262626)
+  );
+  font-size: 14px;
+  border: none;
+  outline: none;
+  padding: 0px 15px;
+  width: 55px;
+  height: 30px;
+  line-height: 30px;
+  -webkit-border-radius: 32px;
+  -moz-border-radius: 32px;
+  border-radius: 32px;
+}
+input[type="range"] {
+    
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 5px;
+  vertical-align: middle;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background-color: #232323;
+  outline: none;
+}
+input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 1px solid #000000;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+#seek {
+  display: block;
+  width: 230px;
+}
+
+#seekbar{
+    position: relative;
+    top:5px;
+}
+
+div.feature {
+        position: relative;
+    }
+
+div.feature a {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    text-decoration: none; /* No underlines on the link */
+    z-index: 10; /* Places the link above everything else in the div */
+    background-color: #FFF; /* Fix to make div clickable in IE */
+    opacity: 0; /* Fix to make div clickable in IE */
+    filter: alpha(opacity=1); /* Fix to make div clickable in IE */
+}
+
+.lightbox {
+    position: fixed absolute;
+    top: 0px;
+    left: 0px;
+    width: 0px;
+    height: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    transition: all 1s ease-in-out;
+}
+
+#content-box {
+    background-color: black;
+    overflow: hidden;
+    min-width: 300px;
+    position: relative;
+    left: -20px;
+}
+
+.lightbox:target {
+    height: 100%;
+    width: 100%;
+}
+
+#playlist a{
+    color: white;
+    text-decoration: none;
+}
